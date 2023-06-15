@@ -1,20 +1,30 @@
 import "./SignIn.scss";
+import SignForm from "../../components/signup-form/SignForm";
+import { useEffect } from "react";
+import { getRedirectResult } from "firebase/auth";
 import {
-  signInWithGooglePopup,
+  auth,
   createUserDocumentAuth,
 } from "../../utils/firebase/firebase.utils";
 
 const SignIn = () => {
-  const logGoogleUser = async () => {
-    const { user } = await signInWithGooglePopup();
-    const userDocRef = await createUserDocumentAuth(user);
-  };
+  useEffect(
+    () =>
+      async function redirectEffect() {
+        const response = await getRedirectResult(auth);
+
+        if (response) {
+          const { user } = response;
+          const userDocRef = await createUserDocumentAuth(user);
+        }
+      },
+    []
+  );
 
   return (
-    <div>
-      <h1>Sign in working!</h1>
-      <button onClick={logGoogleUser}>Click</button>
-    </div>
+    <section className="">
+      <SignForm />
+    </section>
   );
 };
 
