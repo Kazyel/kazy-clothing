@@ -39,7 +39,7 @@
     position: absolute;
     pointer-events: none;
     top: 34px;
-    transition: 400ms ease all;
+    transition: 500ms ease all;
 
     &.shrink {
       @include shrinkLabel();

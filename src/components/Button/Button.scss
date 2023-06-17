@@ -1,0 +1,45 @@
+$blue-color: rgb(44, 142, 255);
+$light-blue-color: rgb(132, 189, 255);
+
+button {
+  cursor: pointer;
+  margin-top: 1.5rem;
+  font-weight: 700;
+  padding: 0.8rem;
+  font-size: 1rem;
+  font-family: "Poppins", sans-serif;
+  border-radius: 0.15rem;
+  width: 100%;
+  transition: all 300ms ease;
+}
+
+.google-button {
+  background: $blue-color;
+  color: white;
+  border: 1px solid $blue-color;
+  &:hover {
+    background: white;
+    border: 1px solid white;
+    color: black;
+  }
+}
+
+.inverted-button {
+  background: none;
+  color: white;
+  border: 1px solid white;
+
+  &:hover {
+    background: white;
+    color: black;
+  }
+}
+
+.normal-button {
+  border: 1px solid white;
+  &:hover {
+    background: $light-blue-color;
+    border: 1px solid $light-blue-color;
+    color: rgb(255, 255, 255);
+  }
+}

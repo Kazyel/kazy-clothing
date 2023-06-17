@@ -1,8 +1,8 @@
-import "./signform.scss";
+import "./SignUpForm.scss";
 import FormInputs from "../formInputs/FormInputs";
+import Button from "../Button/Button";
 import { useState } from "react";
 import {
-  signInWithGooglePopup,
   createUserDocumentAuth,
   createAuthUserWithEmailAndPassword,
 } from "../../utils/firebase/firebase.utils";
@@ -14,14 +14,9 @@ const defaultFormFields = {
   confirmPassword: "",
 };
 
-const SignForm = () => {
+const SignUpForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { displayName, email, password, confirmPassword } = formFields;
-
-  const logGoogleUser = async () => {
-    const { user } = await signInWithGooglePopup();
-    const userDocRef = await createUserDocumentAuth(user);
-  };
 
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
@@ -32,7 +27,6 @@ const SignForm = () => {
 
     if (password !== confirmPassword) {
       alert("Passwords do not match.");
-      resetFormFields();
       return;
     }
 
@@ -59,8 +53,9 @@ const SignForm = () => {
 
   return (
     <div className="form-wrapper">
-      <h1>Create your account!</h1>
-      <form className="group" onSubmit={handleSubmit}>
+      <h2>Don't have an account yet?</h2>
+      <p className="sign-up-form__subtitle">Create your account here!</p>
+      <form onSubmit={handleSubmit}>
         <FormInputs
           label="Display Name"
           id="name"
@@ -97,13 +92,12 @@ const SignForm = () => {
           onChange={handleChange}
           required
         />
-        <div className="button-wrapper">
-          <button type="submit">Sign Up</button>
-          <button onClick={logGoogleUser}>Sign Up with Google</button>
+        <div style={{ width: "50%" }}>
+          <Button type="submit" buttonName="Sign Up" buttonType="normal" />
         </div>
       </form>
     </div>
   );
 };
 
-export default SignForm;
+export default SignUpForm;

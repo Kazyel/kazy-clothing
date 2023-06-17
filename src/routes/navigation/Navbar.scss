@@ -3,6 +3,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 2.5rem 4.5rem;
+  min-width: 650px;
 
   .nav-title {
     padding-left: 0.5rem;
@@ -19,6 +20,7 @@
   gap: 0.75rem;
 
   .nav-link {
+    cursor: pointer;
     padding-left: 0.5rem;
     font-weight: 500;
     font-size: 1.25rem;

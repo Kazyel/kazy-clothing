@@ -1,4 +1,4 @@
-import CategoryCard from "../../components/categories/CategoryCard";
+import CategoryCard from "../../components/Categories/CategoryCard";
 
 const Home = () => {
   return <CategoryCard />;
